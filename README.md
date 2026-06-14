@@ -5,7 +5,7 @@
 **Know where your AI coding tokens go.** Local-first analytics for Claude Code and Codex sessions — spend, activities, budget burn-down. Free forever for individuals.
 
 ```
-npx vibe-check
+npx @realkenlee/vibe-check
 ```
 
 ```
@@ -64,7 +64,13 @@ One normalized report across Claude Code and Codex. More agents coming.
 ## Install
 
 ```bash
-npx vibe-check        # zero-install — if you run Claude Code, you already have Node
+npx @realkenlee/vibe-check        # zero-install — if you run Claude Code, you already have Node
+```
+
+Or install globally for the short command:
+
+```bash
+npm install -g @realkenlee/vibe-check   # then just: vibecheck
 ```
 
 No Node? Locked-down laptop? Grab a **single-file executable** from
@@ -87,22 +93,22 @@ into context. Same privacy contract: everything stays local.
 ## Usage
 
 ```bash
-npx vibe-check                   # full report, all time
-npx vibe-check --days 30         # last 30 days
-npx vibe-check --month 2026-05   # one calendar month (reconciliation)
-npx vibe-check --project api     # scope everything to one project (any substring)
-npx vibe-check --branch q2-migration   # …or to one git branch — what did it cost?
-npx vibe-check --agent codex     # one agent only: claude-code | codex
-npx vibe-check months            # month-over-month spend + agent runtime trend with Δ%
-npx vibe-check --budget 200      # monthly soft limit → burn-down + projection
-npx vibe-check doctor            # just the diagnosis — doctor's notes only
-npx vibe-check doctor --fail-on-warn   # exit 1 on any ⚠ note — CI hygiene gate
-npx vibe-check sessions          # most expensive sessions, span + turns
-npx vibe-check sessions <id>     # drill in: gaps, compactions, activity split
-npx vibe-check wrapped --out wrapped.svg   # shareable card (aggregates only)
-npx vibe-check wrapped --month 2026-06 --out june.svg   # "AI Coding Wrapped · June 2026"
-npx vibe-check web               # static HTML dashboard — no server, opens in browser
-npx vibe-check --json            # machine-readable, pipe it anywhere
+npx @realkenlee/vibe-check                   # full report, all time
+npx @realkenlee/vibe-check --days 30         # last 30 days
+npx @realkenlee/vibe-check --month 2026-05   # one calendar month (reconciliation)
+npx @realkenlee/vibe-check --project api     # scope everything to one project (any substring)
+npx @realkenlee/vibe-check --branch q2-migration   # …or to one git branch — what did it cost?
+npx @realkenlee/vibe-check --agent codex     # one agent only: claude-code | codex
+npx @realkenlee/vibe-check months            # month-over-month spend + agent runtime trend with Δ%
+npx @realkenlee/vibe-check --budget 200      # monthly soft limit → burn-down + projection
+npx @realkenlee/vibe-check doctor            # just the diagnosis — doctor's notes only
+npx @realkenlee/vibe-check doctor --fail-on-warn   # exit 1 on any ⚠ note — CI hygiene gate
+npx @realkenlee/vibe-check sessions          # most expensive sessions, span + turns
+npx @realkenlee/vibe-check sessions <id>     # drill in: gaps, compactions, activity split
+npx @realkenlee/vibe-check wrapped --out wrapped.svg   # shareable card (aggregates only)
+npx @realkenlee/vibe-check wrapped --month 2026-06 --out june.svg   # "AI Coding Wrapped · June 2026"
+npx @realkenlee/vibe-check web               # static HTML dashboard — no server, opens in browser
+npx @realkenlee/vibe-check --json            # machine-readable, pipe it anywhere
 ```
 
 Set `VIBECHECK_BUDGET=200` to make the budget bar permanent.
@@ -115,7 +121,7 @@ Set `VIBECHECK_BUDGET=200` to make the budget bar permanent.
 Or as a library:
 
 ```ts
-import { parseClaudeDir, totals, byActivity, budgetStatus } from 'vibe-check'
+import { parseClaudeDir, totals, byActivity, budgetStatus } from '@realkenlee/vibe-check'
 
 const { events } = parseClaudeDir(`${process.env.HOME}/.claude/projects`)
 console.log(byActivity(events))
